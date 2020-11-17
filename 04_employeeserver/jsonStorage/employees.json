@@ -12,5 +12,12 @@
     "lastname": "River",
     "department": "ict",
     "salary": 4000
+  },
+  {
+    "employeeId": 2,
+    "firstname": "Mary",
+    "lastname": "River",
+    "department": "ict",
+    "salary": 4000
   }
 ]
