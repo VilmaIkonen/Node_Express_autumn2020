@@ -6,13 +6,13 @@ const fs = require('fs').promises;
 const storageConfig = require('./storageConfig.json');
 const storageFile = path.join(__dirname, storageConfig.storageFile);
 
-// Wrapper function  START //
+//  ----- Wrapper function  START (Creates the data storage) ----- //
 function createDataStorage() {
   const { CODES, MESSAGES } = require(path.join(__dirname, storageConfig.errorCodes));
 
-  // Private API functions //
+  // Private API functions (not shown outside this module) //
 
-  // reading storage file
+  // Reading storage file. `async` function because reading is done as 'promises'. With async, one can use `await` or `then / catch`
   async function readStorage() {
     try {
       const data = await fs.readFile(storageFile, 'utf8');
@@ -22,19 +22,19 @@ function createDataStorage() {
       return [];
     }
   }
-  // writing to storage
+  // Writing to storage
   async function writeStorage(data) {
     //here code for writing 
   }
 
-  // getting from storage with id (find returns first matching element from array. need to wait first for the storage to be read, otherwise --> "undefined")
+  // Getting data from storage with id (find returns first matching element from array. need to wait first for the storage to be read, otherwise --> "undefined")
   async function getFromStorage(id) {
     return (await readStorage()).find(employee => employee.employeeId == id) || null;
   }
 
   // more to come
 
-  // Class START
+  // ----- Class START ----- (public API, will be shown outside of this module) //
   class DataStorage {
     get CODES() {
       return CODES;
@@ -61,11 +61,15 @@ function createDataStorage() {
       });
     }
 
-  } // Class END
+  } 
+  // ----- Class END ----- //
+
+  // return new object from DataStorage
   return new DataStorage();
 
-} // Wrapper END
+} // ----- Wrapper END ----- //
 
+// Export only wrapper function
 module.exports = {
   createDataStorage
 }

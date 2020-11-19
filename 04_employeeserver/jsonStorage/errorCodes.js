@@ -16,7 +16,7 @@ const CODES = {
 
 const MESSAGES = {
   PROGRAM_ERROR: () => ({
-    message: 'Sorry! Error in the programme.',
+    message: 'Sorry! Error in the program.',
     code: CODES.PROGRAM_ERROR,
     type: 'error'
   }),
@@ -31,5 +31,8 @@ const MESSAGES = {
     type:'info'
   })
 }
+// () Parenthesis needed (unless `return` is used)
+
+// Program errors could be also put under one function and `map` the array
 
 module.exports = { CODES, MESSAGES }

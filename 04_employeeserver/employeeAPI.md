@@ -61,6 +61,7 @@ Handle writing to and reading from the disk:
 
 - readStorage()
   - returns an array of employees / empty array []
+  - read will always be done before executing any other functions
 
 - writeStorage()
   -   returns WRITE_OK / WRITE_ERROR
@@ -94,7 +95,7 @@ const MESSAGES = {
     message: 'Sorry! Error in the programme.',
     code: CODES.PROGRAM_ERROR,
     type: 'error'
-  }),
+  }), 
   NOT_FOUND: id => ({
     message:`No employee found with employeeId`,
     code: CODES.NOT_FOUND,
