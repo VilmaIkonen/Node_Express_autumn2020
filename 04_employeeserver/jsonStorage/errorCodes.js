@@ -29,7 +29,37 @@ const MESSAGES = {
     message: `Employee ${id} was inserted`,
     code: CODES.INSERT_OK,
     type:'info'
-  })
+  }),
+  NOT_INSERTED: () => ({
+    message: `Employee was not inserted`,
+    code: CODES.NOT_INSERTED,
+    type:'error'
+  }),
+  ALREADY_IN_USE: id => ({
+    message: `EmployeeId ${id} is already in use`,
+    code: CODES.ALREADY_IN_USE,
+    type:'error'
+  }),
+  REMOVE_OK: id => ({
+    message: `EmployeeId ${id} was removed`,
+    code: CODES.REMOVE_OK,
+    type:'info'
+  }),
+  // NOT_REMOVED: id => ({
+  //   message: `EmployeeId ${id} was not removed`,
+  //   code: CODES.NOT_REMOVED,
+  //   type:'error'
+  // }),
+  WRITE_OK: () => ({
+    message: `Write OK`,
+    code: CODES.WRITE_OK,
+    type:'info'
+  }),
+  WRITE_ERROR: errormessage => ({
+    message: errormessage,
+    code: CODES.WRITE_ERROR,
+    type:'error'
+  }) 
 }
 // () Parenthesis needed (unless `return` is used)
 

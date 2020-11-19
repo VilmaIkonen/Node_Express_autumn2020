@@ -7,6 +7,14 @@ const storage = createDataStorage();
 
 // storage.getAll().then(employees => console.log(employees));
 
-storage.get(1).then(employee => console.log(employee)).catch(err => console.log(err));
+// storage.get(1).then(employee => console.log(employee)).catch(err => console.log(err));
 
-storage.get(12).then(employee => console.log(employee)).catch(err => console.log(`${err.message}, Error type: ${err.type}, error code: ${err.code}`));;
+// storage.get(12).then(employee => console.log(employee)).catch(err => console.log(`${err.message}, Error type: ${err.type}, error code: ${err.code}`));
+
+storage.insert({
+    "employeeId": 123,
+    "firstname": "Maryx",
+    "lastname": "Riverx",
+    "department": "ictx",
+    "salary": 9000
+  }).then(status => console.log(status)).catch(err => console.log(error));
