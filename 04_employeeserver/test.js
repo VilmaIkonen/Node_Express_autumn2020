@@ -7,6 +7,6 @@ const storage = createDataStorage();
 
 // storage.getAll().then(employees => console.log(employees));
 
-// storage.get(1).then(employee => console.log(employee));
+storage.get(1).then(employee => console.log(employee)).catch(err => console.log(err));
 
-storage.get(12).then(employee => console.log(employee));
+storage.get(12).then(employee => console.log(employee)).catch(err => console.log(`${err.message}, Error type: ${err.type}, error code: ${err.code}`));;

@@ -45,9 +45,9 @@ function createDataStorage() {
     }
 
     get(id) {
-      return new Promise(async resolve => {
+      return new Promise(async (resolve, reject) => {
         if(!id) {
-          resolve(MESSAGES.NOT_FOUND('<empty id>'));
+          reject(MESSAGES.NOT_FOUND('<empty id>'));
         }
         else {
           const result = await getFromStorage(id);
@@ -55,7 +55,7 @@ function createDataStorage() {
             resolve(result);
           }
           else {
-            resolve(MESSAGES.NOT_FOUND(id));
+            reject(MESSAGES.NOT_FOUND(id));
           }
         }
       });
