@@ -14,17 +14,24 @@
         "salary": 4000
     },
     {
-        "employeeId": 2,
+        "employeeId": 3,
         "firstname": "Mary",
         "lastname": "River",
         "department": "ict",
         "salary": 4000
     },
     {
+        "employeeId": 4,
+        "firstname": "Jesse",
+        "lastname": "Mountain",
+        "department": "ict",
+        "salary": 3000
+    },
+    {
         "employeeId": 123,
         "firstname": "Maryx",
         "lastname": "Riverx",
         "department": "ictx",
-        "salary": 9000
+        "salary": 8000
     }
 ]

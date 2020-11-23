@@ -62,7 +62,37 @@ function createDataStorage() {
       //   return false;
       // }
     }
+  } // END of Storage function
+
+  // Removing from storage
+  async function removeFromStorage(id) {
+    let storage = await readStorage();
+    const i = storage.findIndex(employee => employee.employeeId == id);
+    if(i < 0) return false;
+    storage.splice(i, 1); // splice, takes value out from the array
+    await writeStorage(storage);
+    return true;
   }
+
+   // Updating storage
+   async function updateStorage(employee) {
+     let storage = await readStorage();
+     const oldEmployee = storage.find(oldEmp => oldEmp.employeeId == employee.employeeId);
+     if(oldEmployee) {
+       Object.assign(oldEmployee, {
+         employeeId: +employee.employeeId,
+         firstname: employee.firstname,
+         lastname: employee.lastname,
+         department: employee.department,
+         salary: +employee.salary
+       });
+       await writeStorage(storage);
+       return true;
+     } 
+     else {
+      return false;
+     }
+   }
 
   // ----- Class START ----- (public API, will be shown outside of this module) //
   class DataStorage {
@@ -90,6 +120,7 @@ function createDataStorage() {
         }
       });
     }
+
     insert(employee) {
       return new Promise(async (resolve, reject) => {
         // required fields to enter are id, firstname, lastname
@@ -102,6 +133,38 @@ function createDataStorage() {
           }
           else {
             reject(MESSAGES.ALREADY_IN_USE(employee.employeeId));
+          }
+        }
+      });
+    }
+
+    remove(employeeId) {
+      return new Promise(async (resolve, reject) => {
+        if(!employeeId) {
+          reject(MESSAGES.NOT_FOUND('<empty>'))
+        }
+        else {
+          if(await removeFromStorage(employeeId)) {
+            resolve(MESSAGES.REMOVE_OK(employeeId));
+          }
+          else {
+            reject(MESSAGES.NOT_REMOVED());
+          }
+        }
+      });
+    }
+
+    update(employee) {
+      return new Promise(async (resolve, reject) => {
+        if (!(employee && employee.employeeId && employee.firstname && employee.lastname)){
+          reject(MESSAGES.NOT_UPDATED());
+        }
+        else {
+          if(await updateStorage(employee)) {
+            resolve(MESSAGES.UPDATE_OK(employee.employeeId));
+          }
+          else {
+            reject(MESSAGES.NOT_UPDATED());
           }
         }
       });
