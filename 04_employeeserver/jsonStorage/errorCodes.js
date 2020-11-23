@@ -45,11 +45,21 @@ const MESSAGES = {
     code: CODES.REMOVE_OK,
     type:'info'
   }),
-  // NOT_REMOVED: id => ({
-  //   message: `EmployeeId ${id} was not removed`,
-  //   code: CODES.NOT_REMOVED,
-  //   type:'error'
-  // }),
+  NOT_REMOVED:() => ({
+    message: `No employee found with given employeeId. Nothing removed.`,
+    code: CODES.NOT_REMOVED,
+    type:'error'
+  }),
+  UPDATE_OK: id => ({
+    message: `EmployeeId ${id} was updated`,
+    code: CODES.UPDATE_OK,
+    type:'info'
+  }),
+  NOT_UPDATED: () => ({
+    message: `Data was not updated`,
+    code: CODES.NOT_UPDATED,
+    type:'error'
+  }),
   WRITE_OK: () => ({
     message: `Write OK`,
     code: CODES.WRITE_OK,
