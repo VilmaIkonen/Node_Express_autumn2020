@@ -3,35 +3,35 @@
         "employeeId": 1,
         "firstname": "Leila",
         "lastname": "Hökki",
-        "department": "ict",
-        "salary": 4000
+        "department": "ICT",
+        "salary": 4500
     },
     {
         "employeeId": 2,
         "firstname": "Matt",
         "lastname": "River",
-        "department": "ict",
+        "department": "ICT",
         "salary": 4000
     },
     {
         "employeeId": 3,
         "firstname": "Mary",
         "lastname": "River",
-        "department": "ict",
+        "department": "ICT",
         "salary": 4000
     },
     {
         "employeeId": 4,
         "firstname": "Jesse",
         "lastname": "Mountain",
-        "department": "ict",
+        "department": "ICT",
         "salary": 3000
     },
     {
         "employeeId": 123,
         "firstname": "Maryx",
         "lastname": "Riverx",
-        "department": "ictx",
+        "department": "ICTx",
         "salary": 8000
     }
 ]

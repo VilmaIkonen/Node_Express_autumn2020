@@ -27,7 +27,7 @@ const menuPath = path.join(__dirname, 'menu.html') // menu.html in root folder
 
 app.get('/', (req, res) => res.sendFile(menuPath));
 
-// Data is an array of employees. with mapping the conversion of person <--> amployee will be done. map does not change original array, makes a copy
+// Data is an array of employees. with mapping the conversion of person <--> employee will be done. map does not change original array, makes a copy
 app.get('/all', (req, res) => 
   dataStorage.getAll()
   .then(data => res.render('allPersons', {result: data.map(emp => createPerson(emp))})));
@@ -35,7 +35,7 @@ app.get('/all', (req, res) =>
 app.get('/getPerson', (req, res) => 
   res.render('getPerson', {
     title: 'Get',
-    header: 'Get',
+    header: 'Get an employee by Id',
     action: '/getPerson'
   })
 );
@@ -47,16 +47,32 @@ app.post('/getPerson', (req, res) => {
 
   const personId = req.body.personId;
   dataStorage.get(personId).
-    then(employee => res.render('personPage', {result:createPerson(employee)}))
+    then(employee => res.render('personPage', { result:createPerson(employee) }))
     .catch(error => sendErrorPage(res, error))
 })
 
+app.get('/inputform', (req, res) => 
+  res.render('form', {
+    title: 'Add person',
+    header: 'Add a new person',
+    action: '/insert',
+    personId: { value: '', readonly: ''},
+    firstname: { value: '', readonly: ''},
+    lastname: { value: '', readonly: ''},
+    department: { value: '', readonly: ''},
+    salary: { value: '', readonly: ''}
+  })
+)
 
 
 server.listen(port, host, () => console.log(`Server ${host}: ${port} running`));
 
-function sendErrorPage(res, error){
-  res.end();
+function sendErrorPage(res, error, title='Error', header='Error'){ // default values for header and titl
+  sendStatusPage(res, error, title, header);
+}
+
+function sendStatusPage(res, status, title='Status', header='Status') { // default values for header and title
+  return res.render('statusPage', { title, header, status });
 }
 
 // conversion from employee to person
