@@ -9,57 +9,65 @@
 <body>
   <main>
     <h1> <%= header %> </h1>
-    <form action=" <%= action %>" method="POST">
+    <form class="form" action=" <%= action %>" method="POST">
     <!-- different action when updating and adding... -->
       <div>
         <p>
-          <label for="personId">Person Id</label>
+          <label for="personId">Person Id</label>         
           <input 
           type="text" 
           id="personId" 
           name="personId"
-          size="5"
+          size="20"
           value=" <%= personId.value %> " <%= personId.readonly %> >
         </p>
+      </div> 
+      <div>
         <p>
-          <label for="firstname">First name</label>
+          <label for="firstname">First name</label>          
           <input 
           type="text" 
           id="firstname" 
           name="firstname"
-          size="15"
+          size="20"
           value=" <%= firstname.value %> " <%= firstname.readonly %> >
         </p>
+      </div>
+      <div>        
         <p>
-          <label for="lastname">Last name</label>
+          <label for="lastname">Last name</label>          
           <input 
           type="text" 
           id="lastname" 
           name="lastname"
-          size="15"
+          size="20"
           value=" <%= lastname.value %> " <%= lastname.readonly %> >
         </p>
+      </div>
+      <div>        
         <p>
           <label for="department">Department</label>
           <input 
           type="text" 
           id="department" 
           name="department"
-          size="10"
+          size="20"
           value=" <%= department.value %> " <%= department.readonly %> >
         </p>
+      </div>
+      <div>        
         <p>
-          <label for="salary">Salary</label>
+          <label for="salary">Salary</label>          
           <input 
           type="number" 
           id="salary" 
           name="salary"
-          size="5"
+          size="2"
           value=" <%= salary.value %> " <%= salary.readonly %> >
         </p>
-      </div>
-      <button type="submit">Submit</button>
+      </div>           
     </form>
+    <button type="submit">Submit</button>
     <a href="/"><button>Menu</button></a>
   </main>  
 </body>

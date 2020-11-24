@@ -1,3 +1,7 @@
+body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 h1 {
   color: teal;
 }
@@ -7,6 +11,10 @@ p{
   color: #333;
 }
 
+input[readonly]{
+  background-color: lightgrey;
+}
+
 .legend {
   font-weight: bold;
   color: black
@@ -14,6 +22,14 @@ p{
 
 button {
   padding: 0.5rem 1rem;
+  width: 12em;
+  height: 2.5em;
+}
+
+/* table */
+
+table {
+  border-collapse: collapse;
 }
 
 thead {
@@ -28,3 +44,30 @@ th, td {
 tr {
   color: rgb(9, 9, 31);
 }
+
+/* form  */
+
+.form {
+  display: grid;
+  align-items: center;
+  justify-items: center;  
+}
+
+.form label {
+  font-weight: bold;
+  color: #333;
+  display: inline-block;
+  width: 150px;
+  text-align: right;
+}
+
+.error {
+  border: dashed 1px red;
+  padding:1em;
+}
+
+.error {
+  border: solid 1px green;
+  padding:1em;
+}
+

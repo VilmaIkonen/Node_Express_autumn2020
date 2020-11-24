@@ -17,20 +17,25 @@ const server = http.createServer(app);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'pageviews'));
 
-app.use(express.urlencoded({extended:false}));
+app.use(express.urlencoded({extended:false})); // this could be used individually in all routes.
 app.use(express.static(path.join(__dirname, 'public')));
 
 const menuPath = path.join(__dirname, 'menu.html') // menu.html in root folder
 
 
-// --- GET methods --- //
-
 app.get('/', (req, res) => res.sendFile(menuPath));
 
 // Data is an array of employees. with mapping the conversion of person <--> employee will be done. map does not change original array, makes a copy
+
+// GET ALL PERSONS IN THE DATASTORAGE
+
 app.get('/all', (req, res) => 
   dataStorage.getAll()
-  .then(data => res.render('allPersons', {result: data.map(emp => createPerson(emp))})));
+  .then(data => res.render('allPersons', {result: data.map(emp => createPerson(emp))}))
+);
+
+
+// GET ONE PERSON IN THE DATASTORAGE
 
 app.get('/getPerson', (req, res) => 
   res.render('getPerson', {
@@ -40,8 +45,6 @@ app.get('/getPerson', (req, res) =>
   })
 );
 
-// --- POST methods --- //
-
 app.post('/getPerson', (req, res) => {
   if(!req.body) res.sendStatus(500);
 
@@ -50,6 +53,8 @@ app.post('/getPerson', (req, res) => {
     then(employee => res.render('personPage', { result:createPerson(employee) }))
     .catch(error => sendErrorPage(res, error))
 })
+
+// INSERT NEW PERSON
 
 app.get('/inputform', (req, res) => 
   res.render('form', {
@@ -62,7 +67,86 @@ app.get('/inputform', (req, res) =>
     department: { value: '', readonly: ''},
     salary: { value: '', readonly: ''}
   })
+);
+
+app.post('/insert', (req, res) => {
+  if(!req.body) res.sendStatus(500);
+
+  else dataStorage.insert(createEmployee(req.body))
+  .then(status => sendStatusPage(res, status))
+  .catch(error => sendErrorPage(res, error));
+})
+
+// UPDATE DATA: GET WITH ID
+
+app.get('/updateform', (req, res) => 
+  res.render('form', {
+    title: 'Update person',
+    header: 'Update person data',
+    action: '/updatedata',
+    personId: { value: '', readonly: ''}, 
+    // readonly empty --> allows to add data
+    firstname: { value: '', readonly: 'readonly'},
+    // readonly 'readonly'' --> does not allow to add data
+    lastname: { value: '', readonly: 'readonly'},
+    department: { value: '', readonly: 'readonly'},
+    salary: { value: '', readonly: 'readonly'}
+  })
 )
+
+// UPDATE DATA FOR PERSON WITH ID
+app.post('/updatedata', async (req, res) => {
+  if(!req.body) {
+    res.sendStatus(500)
+  }
+  else {
+    try {
+      const personId = req.body.personId;
+      const employee = await dataStorage.get(personId);
+      const person = createPerson(employee);
+      res.render('form', {
+        title: 'Update person',
+        header: 'Update person data',
+        action: '/updateperson',
+        personId: { value: person.personId, readonly: 'readonly'},
+        firstname: { value: person.firstname, readonly: ''},
+        lastname: { value: person.lastname, readonly: ''},
+        department: { value: person.department, readonly: ''},
+        salary: { value: person.salary, readonly: ''}
+      })
+    }
+    catch(error) {
+      sendErrorPage(res, error);
+    }
+  }
+});
+
+app.post('/updateperson', (req, res) => {
+  if(!req.body) res.sendStatus(500);
+
+  else dataStorage.update(createEmployee(req.body))
+  .then(status => sendStatusPage(res, status))
+  .catch(error => sendErrorPage(res, error))
+});
+
+// REMOVE
+
+app.get('/removeperson', (req, res) => 
+  res.render('getPerson', {
+    title: 'Remove',
+    header:'Remove person',
+    action: '/removeperson'
+  })
+)
+
+app.post('/removeperson', (req, res) => {
+  if(!req.body) res.sendStatus(500);
+
+  const personId = req.body.personId;
+  dataStorage.remove(personId)
+  .then(status => sendStatusPage(res, status))
+  .catch(error => sendErrorPage(res, error));
+});
 
 
 server.listen(port, host, () => console.log(`Server ${host}: ${port} running`));

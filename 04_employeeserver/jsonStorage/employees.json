@@ -1,12 +1,5 @@
 [
     {
-        "employeeId": 1,
-        "firstname": "Leila",
-        "lastname": "Hökki",
-        "department": "ICT",
-        "salary": 4500
-    },
-    {
         "employeeId": 2,
         "firstname": "Matt",
         "lastname": "River",
