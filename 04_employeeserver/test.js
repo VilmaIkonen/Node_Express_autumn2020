@@ -1,6 +1,6 @@
 'use strict';
 
-const { createDataStorage } = require('./jsonStorage/dataStorageLayer.SomethingWrongjs');
+const { createDataStorage } = require('./jsonStorage/dataStorageLayer');
 const storage = createDataStorage();
 
 // console.log(storage.CODES);

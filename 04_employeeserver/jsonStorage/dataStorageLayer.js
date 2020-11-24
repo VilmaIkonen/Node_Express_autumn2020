@@ -54,15 +54,8 @@ function createDataStorage() {
       });
       await writeStorage(storage); // check this in test.js what is the contents of `storage`
       return true;
-      // const writeResult = await writeStorage(storage);
-      // if(writeResult.code === CODES.WRITE_OK) {
-      //   return true;
-      // }
-      // else {
-      //   return false;
-      // }
     }
-  } // END of Storage function
+  }
 
   // Removing from storage
   async function removeFromStorage(id) {
