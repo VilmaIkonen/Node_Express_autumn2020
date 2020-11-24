@@ -1,0 +1,51 @@
+[
+  {
+  "number":3,
+  "name":"Deep Thinker",
+  "age":2,
+  "speed":"ridiculously fast",
+  "weightKg":5
+  },
+  {
+  "number":2,
+  "name":"Hurrier",
+  "age":1,
+  "speed":"tarish",
+  "weightKg":15
+  },
+  {
+  "number":5,
+  "name":"Hard Shield",
+  "age":200,
+  "speed":"quicksilvery",
+  "weightKg":150
+  },
+  {
+  "number":7,
+  "name":"Peace",
+  "age":10,
+  "speed":"normal",
+  "weightKg":20
+  },
+  {
+  "number":1,
+  "name":"MaxAge 2000",
+  "age":20,
+  "speed":"ridiculously slow",
+  "weightKg":13
+  },
+  {
+  "number":4,
+  "name":"Ninja",
+  "age":5,
+  "speed":"slowish",
+  "weightKg":100
+  },
+  {
+  "number":6,
+  "name":"Turtle King",
+  "age":100,
+  "speed":"fast",
+  "weightKg":7
+  }
+]
