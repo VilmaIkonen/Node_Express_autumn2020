@@ -72,10 +72,10 @@ app.get('/inputform', (req, res) =>
 app.post('/insert', (req, res) => {
   if(!req.body) res.sendStatus(500);
 
-  else dataStorage.insert(createEmployee(req.body))
+  dataStorage.insert(createEmployee(req.body))
   .then(status => sendStatusPage(res, status))
   .catch(error => sendErrorPage(res, error));
-})
+});
 
 // UPDATE DATA: GET WITH ID
 
@@ -95,30 +95,23 @@ app.get('/updateform', (req, res) =>
 )
 
 // UPDATE DATA FOR PERSON WITH ID
-app.post('/updatedata', async (req, res) => {
-  if(!req.body) {
-    res.sendStatus(500)
-  }
-  else {
-    try {
-      const personId = req.body.personId;
-      const employee = await dataStorage.get(personId);
-      const person = createPerson(employee);
-      res.render('form', {
-        title: 'Update person',
-        header: 'Update person data',
-        action: '/updateperson',
-        personId: { value: person.personId, readonly: 'readonly'},
-        firstname: { value: person.firstname, readonly: ''},
-        lastname: { value: person.lastname, readonly: ''},
-        department: { value: person.department, readonly: ''},
-        salary: { value: person.salary, readonly: ''}
-      })
-    }
-    catch(error) {
-      sendErrorPage(res, error);
-    }
-  }
+
+app.post('/updatedata', (req, res) => {
+  if(!req.body) res.sendStatus(500);
+
+  dataStorage.get(req.body.personId)
+  .then(employee => createPerson(employee))
+  .then(person => res.render('form', {
+      title: 'Update person',
+      header: 'Update person data',
+      action: '/updateperson',
+      personId: { value: person.personId, readonly: 'readonly'},
+      firstname: { value: person.firstname, readonly: ''},
+      lastname: { value: person.lastname, readonly: ''},
+      department: { value: person.department, readonly: ''},
+      salary: { value: person.salary, readonly: ''}
+  }))
+  .catch(error => sendErrorPage(res, error));
 });
 
 app.post('/updateperson', (req, res) => {

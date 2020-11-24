@@ -1,10 +1,10 @@
 [
     {
         "employeeId": 2,
-        "firstname": "Matt",
-        "lastname": "River",
-        "department": "ICT",
-        "salary": 4000
+        "firstname": "  Matt  ",
+        "lastname": "  River  ",
+        "department": " HR ",
+        "salary": 3450
     },
     {
         "employeeId": 3,
@@ -21,10 +21,17 @@
         "salary": 3000
     },
     {
-        "employeeId": 123,
-        "firstname": "Maryx",
-        "lastname": "Riverx",
-        "department": "ICTx",
-        "salary": 8000
+        "employeeId": 45,
+        "firstname": "   Mrs",
+        "lastname": "Bay",
+        "department": "GM",
+        "salary": 3400
+    },
+    {
+        "employeeId": 1,
+        "firstname": "Kille",
+        "lastname": "Kallenen",
+        "department": "QA",
+        "salary": 5546
     }
 ]
