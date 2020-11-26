@@ -46,8 +46,5 @@ const messages = {
     type:'error'
   }) 
 }
-// () Parenthesis needed (unless `return` is used)
-
-// Program errors could be also put under one function and `map` the array
 
 module.exports = { messages }

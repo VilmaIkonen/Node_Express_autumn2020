@@ -29,6 +29,10 @@ function turtleDataStorage() {
 
   class turtleStorage {
 
+    get messages() {
+      return messages;
+    }
+
     getAll() {
       return readStorage();
     }
