@@ -3,6 +3,7 @@
 'use strict';
 
 const { write } = require('fs');
+const { resolve } = require('path');
 const path = require('path');
 const fs = require('fs').promises;
 
@@ -72,6 +73,26 @@ function turtleDataStorage() {
     return true;
   }
 
+  // Updating storage data
+  async function updateStorage(turtle) {
+    let storage = await readStorage();
+    const turtleToUpdate = storage.find(oldTurtle => oldTurtle.number == turtle.number);
+    if(turtleToUpdate) {
+      Object.assign(turtleToUpdate, {
+        number: +turtle.number,
+        name: turtle.name,
+        age: +turtle.age,
+        speed: turtle.speed,
+        weightKg: +turtle.weightKg
+      });
+      await writeStorage(storage);
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
   // START CLASS //
 
   class turtleStorage {
@@ -138,7 +159,24 @@ function turtleDataStorage() {
       });
     }
     
+    // Update turtle data 
+    update(turtle) {
+      return new Promise(async (resolve, reject) => {
+        if(!(turtle && turtle.number && turtle.name)) {
+          reject(messages.NOT_UPDATED());
+        }
+        else {
+          if(await updateStorage(turtle)) {
+            resolve(messages.UPDATE_OK(turtle.number));
+          }
+          else {
+            reject(messages.NOT_UPDATED());
+          }
+        }
+      })
+    }
   }
+
   return new turtleStorage();
 
   // END CLASS //

@@ -47,5 +47,12 @@
         "age": 100,
         "speed": "fast",
         "weightKg": 7
+    },
+    {
+        "number": 123,
+        "name": "Mary",
+        "age": 16,
+        "speed": "sluggish",
+        "weightKg": 87
     }
 ]

@@ -25,5 +25,13 @@ const storage = turtleDataStorage();
 //   }).then(status => console.log(status)).catch(error => console.log(error));
 
 // Testing that remove works
-storage.remove(123).then(result => console.log(result)).catch(virhe => console.log(virhe));
+// storage.remove(123).then(result => console.log(result)).catch(virhe => console.log(virhe));
 
+// Testing that updating data works
+storage.update({
+  "number": 123,
+  "name": "Mary",
+  "age": 16,
+  "speed": "sluggish",
+  "weightKg": 87
+}).then(status => console.log(status)).catch(error => console.log(error));
