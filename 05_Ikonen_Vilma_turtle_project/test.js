@@ -15,5 +15,12 @@ const storage = turtleDataStorage();
 // // Testing that errormessage works for getFromStorage
 // storage.get(222).then(kilppari => console.log(kilppari)).catch(virhe => console.log(virhe));
 
-
+// // Testing that insert works
+storage.insert({
+    "number": 123,
+    "name": "Maryx",
+    "age": 15,
+    "speed": "sluggish",
+    "weightKg": 87
+  }).then(status => console.log(status)).catch(error => console.log(error));
 

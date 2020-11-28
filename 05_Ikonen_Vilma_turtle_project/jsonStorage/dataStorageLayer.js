@@ -30,7 +30,7 @@ function turtleDataStorage() {
   // Writing to storage file
   async function writeStorage(data) {
     try {
-      await fs.writeFile(turtleDataFile, JSON.stringify(data), {encoding: 'utf-8', flag:'w'});
+      await fs.writeFile(turtleDataFile, JSON.stringify(data, null, 4), {encoding: 'utf-8', flag:'w'});
       return messages.WRITE_OK
     }
     catch(err) {
@@ -95,7 +95,20 @@ function turtleDataStorage() {
 
     // Insert new turtle to the storage
     insert(turtle) {
-      return new Promise(async (resolve, reject) => )
+      return new Promise(async (resolve, reject) => {
+        if(!turtle && turtle.number && turtle.name){
+          reject(messages.NOT_INSERTED());
+        }
+        else {
+          if(await addToStorage(turtle)) {
+            resolve(messages.INSERT_OK(turtle.number));
+          }
+          else {
+            reject(messages.ALREADY_IN_USE(turtle.number));
+          }
+        }
+
+      })
     }
     
   }
