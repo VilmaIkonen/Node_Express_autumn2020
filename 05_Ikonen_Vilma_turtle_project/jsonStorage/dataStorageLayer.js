@@ -62,6 +62,16 @@ function turtleDataStorage() {
     }
   }
 
+  // Removing turtle data from the storage
+  async function removeFromStorage(number) {
+    let storage = await readStorage();
+    const turtleIndex = storage.findIndex(turtle => turtle.number == number);
+    if(turtleIndex <0) return false;
+    storage.splice(turtleIndex, 1); // take 1 turtle from array
+    await writeStorage(storage);
+    return true;
+  }
+
   // START CLASS //
 
   class turtleStorage {
@@ -109,6 +119,23 @@ function turtleDataStorage() {
         }
 
       })
+    }
+
+    // Remove turtle from storage based on number
+    remove(number) {
+      return new Promise(async (resolve, reject) => {
+        if(!number) {
+          reject(messages.NOT_FOUND())
+        }
+        else {
+          if(await removeFromStorage(number)) {
+            resolve(messages.REMOVE_OK(number));
+          }
+          else {
+            reject(messages.NOT_REMOVED());
+          }
+        }
+      });
     }
     
   }
