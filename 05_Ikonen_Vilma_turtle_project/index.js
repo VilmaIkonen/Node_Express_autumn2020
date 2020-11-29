@@ -29,6 +29,15 @@ const homePath = path.join(__dirname, 'home.html');
 // To home page
 app.get('/', (req, res) => res.sendFile(homePath));
 
+// To getone page 
+app.get('/getone', (req, res) => res.render(
+  'getone', {
+    // title: 'Find a turtle',
+    // header: 'Find a turtle',
+    action: '/getone'
+  }
+));
+
 // GET methods END //
 
 server.listen(port, host, () => console.log(`Server ${host}: ${port} running`));
