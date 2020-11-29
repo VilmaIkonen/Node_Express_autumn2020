@@ -29,6 +29,11 @@ const homePath = path.join(__dirname, 'home.html');
 // To home page
 app.get('/', (req, res) => res.sendFile(homePath));
 
+
+// To all turtles -page
+app.get('/all', (req, res) => turtleStorage.getAll()
+.then(data => res.render('getall', { result: data.map(turtle => createTurtle(turtle))})))
+
 // To getone page 
 app.get('/getone', (req, res) => res.render(
   'getone', {
@@ -38,6 +43,39 @@ app.get('/getone', (req, res) => res.render(
   }
 ));
 
+// Posting request from getone page
+app.post('/getone', (req, res) => {
+  if(!req.body) res.sendStatus(500);
+
+  const turtleNumber = req.body.turtleNumber;
+  turtleStorage.get(turtleNumber)
+  .then(turtle => res.render('turtlepage', {
+    result:createTurtle(turtle)}))
+  .catch(error => sendErrorPage(res, error)) 
+})
+
 // GET methods END //
 
+// Creating server
 server.listen(port, host, () => console.log(`Server ${host}: ${port} running`));
+
+// Function for sending the error page
+function sendErrorPage(res, error, title='Error', header='Error') {
+  sendStatusPage(res, error, title, header);
+}
+
+// Function for sending status page 
+function sendStatusPage(res, status, title='Status', header='Status') {
+  return res.render('statuspage', { title, header, status });
+}
+
+// Function for creating one turtle
+function createTurtle(turtle) {
+  return {
+    number: turtle.number,
+    name: turtle.name,
+    age: turtle.age,
+    speed: turtle.speed,
+    weightKg: turtle.weightKg
+  }
+}
