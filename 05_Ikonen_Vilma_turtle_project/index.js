@@ -54,6 +54,9 @@ app.post('/getone', (req, res) => {
   .catch(error => sendErrorPage(res, error)) 
 })
 
+// Inserting a new turtle to database
+app.get('/insert', (req, res) => res.render(''))
+
 // GET methods END //
 
 // Creating server

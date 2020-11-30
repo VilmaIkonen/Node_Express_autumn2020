@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> <%= title %> </title>
+  <link rel="stylesheet" href="/styles/styles.css" type="text/css">
+</head>
+<body>
+  <h1> <%= header %> </h1>
+  <form 
+    class="form" 
+    action=" <%= action %> "
+    method="POST"></form>
+    <!-- 'action' defines which webpage will be shown-->
+    <div>
+      <p>
+        <label for="number">Turtle no.</label>
+        <input 
+          type="text"
+          id="number"
+          name="number"
+          value=" <%= number.value %>" <%= number.readonly %> >
+      </p>
+    </div>
+    <div>
+      <p>
+        <label for="name">Name</label>
+        <input 
+          type="text"
+          id="name"
+          name="name"
+          value=" <%= name.value %>" <%= name.readonly %> >
+      </p>
+    </div>
+    <div>
+      <p>
+        <label for="age">Age</label>
+        <input 
+          type="text"
+          id="age"
+          name="age"
+          value=" <%= age.value %>" <%= age.readonly %> >
+      </p>
+    </div>
+    <div>
+      <p>
+        <label for="speed">Speed</label>
+        <input 
+          type="text"
+          id="speed"
+          name="speed"
+          value=" <%= speed.value %>" <%= speed.readonly %> >
+      </p>
+    </div>
+    <div>
+      <p>
+        <label for="weightKg">Weight</label>
+        <input 
+          type="text"
+          id="weightKg"
+          name="weightKg"
+          value=" <%= weightKg.value %>" <%= weightKg.readonly %> >
+      </p>
+    </div>  
+</body>
+</html>
