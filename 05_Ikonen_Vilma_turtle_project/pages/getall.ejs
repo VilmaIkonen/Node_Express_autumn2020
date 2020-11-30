@@ -3,9 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>All our turtles</title>
 </head>
 <body>
-  all turtles
+  <h1>All our turtles</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Turtle no.</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Speed</th>
+        <th>Weight (kg)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% result.forEach(turtle => { %> 
+      <tr>
+        <td>
+          <%= turtle.number %>
+        </td>
+        <td>
+          <%= turtle.name %>
+        </td>
+        <td> 
+          <%= turtle.age %>
+        </td>
+        <td>
+          <%= turtle.speed %>
+        </td>
+        <td>
+          <%= turtle.weightKg %>
+        </td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+  <a href="/"><button>Back to home page</button></a>
 </body>
 </html>
