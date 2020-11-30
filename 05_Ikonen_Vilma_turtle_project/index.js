@@ -24,7 +24,8 @@ app.use(express.static(path.join(__dirname, 'public'))); // The root argument sp
 const homePath = path.join(__dirname, 'home.html');
 
 
-// GET methods START //
+// GET and POST START //
+// GET route is used to display a new empty form for creating the object. POST is used for saving the info and redirecting 
 
 // To home page
 app.get('/', (req, res) => res.sendFile(homePath));
@@ -43,7 +44,7 @@ app.get('/getone', (req, res) => res.render(
   }
 ));
 
-// Posting request from getone page
+// Posting request from /getone page
 app.post('/getone', (req, res) => {
   if(!req.body) res.sendStatus(500);
 
@@ -55,9 +56,31 @@ app.post('/getone', (req, res) => {
 })
 
 // Inserting a new turtle to database
-app.get('/insert', (req, res) => res.render(''))
+app.get('/inputform', (req, res) => 
+  res.render('formInsertUpdate', {
+    title: 'Insert',
+    header: 'Insert new turtle to database',
+    action: '/insert',
+    number: {value: '', readonly: ''},
+    name: {value: '', readonly: ''},
+    age: {value: '', readonly: ''},
+    speed: {value: '', readonly: ''},
+    weightKg: {value: '', readonly: ''}
+  })
+)
 
-// GET methods END //
+// Posting request from /insert page
+app.post('/insert', (req, res) => {
+  if(!req.body) res.sendStatus(500);
+
+  turtleStorage.insert(createTurtle(req.body))
+  .then(status => sendStatusPage(res, status))
+  .catch(error => sendErrorPage(res, error));
+});
+
+
+
+// GET and POST methods END //
 
 // Creating server
 server.listen(port, host, () => console.log(`Server ${host}: ${port} running`));

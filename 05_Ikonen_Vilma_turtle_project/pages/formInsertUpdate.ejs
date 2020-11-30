@@ -11,9 +11,9 @@
   <form 
     class="form" 
     action=" <%= action %> "
-    method="POST"></form>
-    <!-- 'action' defines which webpage will be shown-->
-    <div>
+    method="POST">
+    <!-- POST used when changing database content. 'action' = URL where the data is send for processing on submit -->
+    <div> 
       <p>
         <label for="number">Turtle no.</label>
         <input 
@@ -62,6 +62,9 @@
           name="weightKg"
           value=" <%= weightKg.value %>" <%= weightKg.readonly %> >
       </p>
-    </div>  
+    </div>
+    <button type="submit">Submit</button>
+  </form>  
+  <a href="/"><button>Back to home page</button></a>
 </body>
 </html>

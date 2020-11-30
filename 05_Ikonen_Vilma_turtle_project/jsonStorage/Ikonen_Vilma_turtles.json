@@ -54,5 +54,12 @@
         "age": 16,
         "speed": "sluggish",
         "weightKg": 87
+    },
+    {
+        "number": 34,
+        "name": " h",
+        "age": " 6",
+        "speed": " r",
+        "weightKg": " 4"
     }
 ]

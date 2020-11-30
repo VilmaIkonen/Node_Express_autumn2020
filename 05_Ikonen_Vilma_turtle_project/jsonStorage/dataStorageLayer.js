@@ -2,8 +2,6 @@
 
 'use strict';
 
-const { write } = require('fs');
-const { resolve } = require('path');
 const path = require('path');
 const fs = require('fs').promises;
 
