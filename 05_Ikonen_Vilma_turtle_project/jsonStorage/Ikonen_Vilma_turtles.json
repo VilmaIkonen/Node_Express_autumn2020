@@ -4,62 +4,71 @@
         "name": "Deep Thinker",
         "age": 2,
         "speed": "ridiculously fast",
-        "weightKg": 5
+        "weightKg": 5,
+        "image": "Turtle3.png"
     },
     {
         "number": 2,
         "name": "Hurrier",
         "age": 1,
         "speed": "tarish",
-        "weightKg": 15
+        "weightKg": 15,
+        "image": "Turtle2.png"
     },
     {
         "number": 5,
         "name": "Hard Shield",
         "age": 200,
         "speed": "quicksilvery",
-        "weightKg": 150
+        "weightKg": 150,
+        "image": ""
     },
     {
         "number": 7,
         "name": "Peace",
         "age": 10,
         "speed": "normal",
-        "weightKg": 20
+        "weightKg": 20,
+        "image": ""
     },
     {
         "number": 1,
         "name": "MaxAge 2000",
         "age": 20,
         "speed": "ridiculously slow",
-        "weightKg": 13
+        "weightKg": 13,
+        "image": "Turtle1.png"
     },
     {
         "number": 4,
         "name": "Ninja",
         "age": 5,
         "speed": "slowish",
-        "weightKg": 100
+        "weightKg": 100,
+        "image": "Turtle4.png"
     },
     {
         "number": 6,
         "name": "Turtle King",
         "age": 100,
         "speed": "fast",
-        "weightKg": 7
+        "weightKg": 7,
+        "image": ""
     },
     {
         "number": 123,
         "name": "Mary",
         "age": 16,
         "speed": "sluggish",
-        "weightKg": 87
+        "weightKg": 87,
+        "image": ""
     },
     {
         "number": 34,
         "name": "  Helmi",
         "age": 6,
         "speed": "  rusty",
-        "weightKg": 4
+        "weightKg": 4,
+        "image": ""
     }
 ]

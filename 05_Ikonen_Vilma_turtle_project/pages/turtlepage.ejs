@@ -4,16 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Turtle query result</title>
-  <link rel="stylesheet" href="/tyles/styles.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Nova+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/styles.css" type="text/css">
 </head>
 <body>
   <main>
     <h1>Turtle data</h1>
-    <p>Turtle number: <%= result.number %> </p>
-    <p>Name: <%= result.name %> </p>
-    <p> Age: <%= result.age %> </p>
-    <p> Speed: <%= result.speed %> </p>
-    <p> Weight: <%= result.weightKg %> </p>
+    <div class="container">
+      <img src="images/<%= result.image %>" 
+      alt="<%= result.name %> ">
+      <p>Turtle number: <%= result.number %> </p>
+      <p>Name: <%= result.name %> </p>
+      <p> Age: <%= result.age %> </p>
+      <p> Speed: <%= result.speed %> </p>
+      <p> Weight: <%= result.weightKg %> </p>
+      
+    </div>
     <a href="/"><button>Back to home page</button></a>
     <a href="/getone"><button>Back to query page</button></a>
   </main>  

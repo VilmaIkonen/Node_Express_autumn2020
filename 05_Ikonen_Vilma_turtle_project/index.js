@@ -41,8 +41,8 @@ app.get('/all', (req, res) => turtleStorage.getAll()
 // To getone page 
 app.get('/getone', (req, res) => res.render(
   'getone', {
-    // title: 'Find a turtle',
-    // header: 'Find a turtle',
+    title: 'Find a turtle',
+    header: 'Find a turtle',
     action: '/getone'
   }
 ));
@@ -63,7 +63,7 @@ app.post('/getone', (req, res) => {
 app.get('/insert', (req, res) => 
   res.render('formInsertUpdate', {
     title: 'Insert',
-    header: 'Insert new turtle to database',
+    header: 'Add new turtle to database',
     action: '/insert',
     number: {value: '', readonly: ''},
     name: {value: '', readonly: ''},
