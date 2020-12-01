@@ -1,0 +1,97 @@
+/* Global styling */
+
+:root {
+  font-family: 'Nova Mono', monospace;
+  --aqua: #32929B;
+  --blue: #206f94;
+  --green: #506D2A;
+  --lightgreen: #95b384;
+  --dark: #222;
+}
+
+body {
+  background-color: var(--lightgreen);
+}
+
+h1 {
+  color: var(--dark);
+  margin-left: 0.5rem;
+}
+
+button {
+  color: var(--dark);
+  font-family: 'Nova Mono', monospace;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  width: 150px;
+}
+
+button:hover{
+  background-color: var(--aqua);
+}
+
+label {
+  font-weight: bold;
+  display: inline-block;
+  width: 100px;
+}
+
+input {
+  font-family: 'Nova Mono', monospace;
+  padding: 0.5rem 1rem;
+}
+
+input[readonly]{
+  background-color: var(--green);
+}
+
+/* Styling for Home page */
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Styling for getall page  */
+
+table {
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+thead {
+  border-bottom: 3px solid var(--dark);
+  background-color: var(--blue);
+}
+
+tbody {
+  background-color: var(--aqua);
+}
+
+td, th {
+  border: 1px solid var(--dark);
+  padding: 0.5rem;
+  text-align: left;
+}
+
+/* Styling for turtle page */
+
+.container {
+  background-color: var(--aqua);
+  max-width: 300px;
+  padding: 1rem;
+  border-radius: 3px;
+}
+
+/* Styling for status types */
+.error {
+  border-bottom: dashed 1px red;
+  padding:1rem;
+  width: 300px;
+}
+
+.info {
+  border-bottom: solid 1px var(--aqua);
+  width: 300px;
+  padding:1rem;
+}

@@ -163,6 +163,7 @@ function createTurtle(turtle) {
     name: turtle.name,
     age: turtle.age,
     speed: turtle.speed,
-    weightKg: turtle.weightKg
+    weightKg: turtle.weightKg,
+    image: turtle.image
   }
 }
