@@ -1,0 +1,7 @@
+<%- include('head', {language, title, header, css}) %>
+
+<% for(const [key, value] of Object.entries(data)) { %>
+  <p> <%= key %>: <%= value %> </p>
+<% } %>
+
+<%- include('tail', {menuLabel}) %>

@@ -1,8 +1,8 @@
 [
   {
     "name": "firstname",
-    "label": "First name",
-    "title": "Only letters allowed",
+    "label": "Etunimi",
+    "title": "Vain kirjaimet sallittu",
     "size": "15",
     "pattern": "[A-ZÅÄÖ][a-zåäö]{1,14}",
     "mode": "required",
@@ -10,8 +10,8 @@
   },
   {
     "name": "lastname",
-    "label": "Last name",
-    "title": "Only letters and space allowed",
+    "label": "Sukunimi",
+    "title": "Kirjaimet ja välilyönnit sallittu",
     "size": "25",
     "pattern": "[A-ZÅÄÖ][a-zåäöA-ZÅÄÖ ]{1,14}",
     "mode": "",
@@ -19,8 +19,8 @@
   },
   {
     "name": "department",
-    "label": "Department",
-    "title": "Letters, numbers and spaces allowed",
+    "label": "Osasto",
+    "title": "Kirjaimet, numerot ja välilyönnit sallittu",
     "size": "10",
     "pattern": "[a-zåäöA-ZÅÄÖ0-9 ]{1,10}",
     "mode": "",
