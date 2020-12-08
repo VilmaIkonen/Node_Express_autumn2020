@@ -1,0 +1,20 @@
+[
+  {
+    "name": "firstname",
+    "label": "First name",
+    "title": "Only letters allowed",
+    "size": "15",
+    "pattern": "[A-ZÅÄÖ][a-zåäö]{1,14}",
+    "mode": "required",
+    "value": ""
+  },
+  {
+    "name": "lastname",
+    "label": "Last name",
+    "title": "Only letters and space allowed",
+    "size": "15",
+    "pattern": "[A-ZÅÄÖ][a-zåäö]{1,14}",
+    "mode": "",
+    "value": ""
+  }
+]
