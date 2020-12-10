@@ -69,7 +69,7 @@ function sendStatus(res, status) {
   return res.json(status);
 }
 
-// conversion from employee to person
+// Conversion from employee to person
 function createPerson(employee) {
   return {
     personId: employee.employeeId, 

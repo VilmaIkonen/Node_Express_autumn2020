@@ -4,16 +4,57 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SPA Demo</title>
-  <link rel="stylesheet" href="styles/styles.css" type="text/css">
+  <link rel="stylesheet" href="/styles/spastyles.css" type="text/css">
+  <script src="/js/spaHandler.js"></script>
 </head>
 <body>
   <main>
     <h1>SPA</h1>
-    <!-- <a href="/all"><button>Get all persons</button></a>
-    <a href="/getPerson"><button>Get one person</button></a>
-    <a href="/inputform"><button>Add new person</button></a>
-    <a href="/updateform"><button>Update person data</button></a>
-    <a href="/removeperson"><button>Remove person</button></a> -->
+    <fieldset id="methods">
+      <legend>Choose: </legend>
+      <label>
+        <input 
+        type="radio" 
+        name="method" 
+        value="GETALL" 
+        id="getall">Get all
+      </label>
+      <label>
+        <input type="radio" name="method" value="GET">Get one</label>
+      <label>
+        <input type="radio" name="method" value="ADD">Add</label>
+      <label>
+        <input type="radio" name="method" value="UPDATE">Update </label>
+      <label>
+        <input type="radio" name="method" value="REMOVE">Remove</label>
+    </fieldset>
+    <div id="search">
+      <p>
+        <label for="personId">Person ID</label>
+        <input type="text" id="personId" size="15">
+      </p>
+    </div>
+    <div id="form">
+      <p>
+        <label for="firstname">First name</label>
+        <input type="text" id="firstname" size="15">
+      </p>
+      <p>
+        <label for="lastname">Last name</label>
+        <input type="text" id="lastname" size="15">
+      </p>
+      <p>
+        <label for="department">Department</label>
+        <input type="text" id="department" size="15">
+      </p>
+      <p>
+        <label for="salary">Salary</label>
+        <input type="text" id="salary" size="15">
+      </p>
+    </div>
+    <button id="submit">Submit</button>
+    <div id="listarea"></div>
+    <div id="messagearea"></div>
   </main>  
 </body>
 </html>
