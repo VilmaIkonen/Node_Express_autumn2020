@@ -92,17 +92,17 @@ app.route('/fi')
     header: 'Syötit tiedot',
     menuLabel:'Valikko',
     css: 'styles',
-    data: req.body 
+    data: convertToLabelValuePairs(req.body, fieldsFI) 
   }))
 
 
 server.listen(port, host, () => console.log(`Listening ${host}: ${port}`));
 
 // This will give name instead of label to datapage.ejs
-function convertToLabelValuePairs(data, fields) {
-  let labelValues = {}
+function convertToLabelValuePairs(data,fields){
+  let labelValues={}
   for(let field of fields) {
-    labelValues[field.label] = data[field.name];
+      labelValues[field.label]=data[field.name];
   }
   return labelValues;
 }

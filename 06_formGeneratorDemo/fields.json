@@ -1,29 +1,29 @@
 [
   {
-    "name": "firstname",
-    "label": "First name",
-    "title": "Only letters allowed",
-    "size": "15",
-    "pattern": "[A-ZÅÄÖ][a-zåäö]{1,14}",
-    "mode": "required",
-    "value": ""
+    "name":"firstname",
+    "label":"First name",
+    "title":"Only letters allowed",
+    "size":"15",
+    "pattern":"[A-ZÅÄÖ][a-zåäö]{0,14}", 
+    "mode":"required",
+    "value":""
   },
   {
-    "name": "lastname",
-    "label": "Last name",
-    "title": "Only letters and space allowed",
-    "size": "25",
-    "pattern": "[A-ZÅÄÖ][a-zåäöA-ZÅÄÖ ]{1,14}",
-    "mode": "",
-    "value": ""
+    "name":"lastname",
+    "label":"Last name",
+    "title":"Letter and space allowed",
+    "size":"25",
+    "pattern":"[A-ZÅÄÖ][a-zåäöA-ZÅÄÖ ]{0,14}",
+    "mode":"",
+    "value":""
   },
   {
-    "name": "department",
-    "label": "Department",
-    "title": "Letters, numbers and spaces allowed",
-    "size": "10",
-    "pattern": "[a-zåäöA-ZÅÄÖ0-9 ]{1,10}",
-    "mode": "",
-    "value": ""
+    "name":"department",
+    "label":"Department",
+    "title":"Letters, numbers and spaces allowed",
+    "size":"10",
+    "pattern":"[a-zåäöA-ZÅÄÖ0-9 ]{1,10}",
+    "mode":"",
+    "value":""
   }
 ]

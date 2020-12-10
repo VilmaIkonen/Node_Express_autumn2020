@@ -1,12 +1,12 @@
 <%- include('head', {language, title, header}) %>
 
-<form action=" <%= action %> " method="POST">
+<form action="<%= action %>"method="POST">
   <div>
 <!-- going through all the fields and putting them to the page -->
     <% fields.forEach(field => { %> 
       <p>
-        <label for=" <%= field.name %> "> <%= field.label %> </label>
-        <input type="text" id=" <%= field.name %> " name=" <%= field.name %> " size=" <%= field.size %> " value=" <% field.value %> " patter=" <%= field.pattern %> " title=" >%= field.title %> " <%= field.mode %> >
+        <label for="<%= field.name %>"> <%= field.label %> </label>
+        <input type="text" id="<%= field.name %>" name="<%= field.name %>" size="<%= field.size %>" value="<% field.value %>" pattern="<%= field.pattern %>" title="<%= field.title %>" <%= field.mode %>
       </p>
     <% }); %>
 
