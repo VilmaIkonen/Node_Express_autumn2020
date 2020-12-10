@@ -4,6 +4,11 @@
   <div>
 <!-- going through all the fields and putting them to the page -->
     <% fields.forEach(field => { %> 
+      <% if(field.type && field.type === "xyz") { %>
+        <h1>We have a type <%= field.type %> </h1>
+        <% } else if(field.type) { %>
+          <%- include('xyz', {message: 'Hi there!'}) %>     
+      <% } %>
       <p>
         <label for="<%= field.name %>"> <%= field.label %> </label>
         <input type="text" id="<%= field.name %>" name="<%= field.name %>" size="<%= field.size %>" value="<% field.value %>" pattern="<%= field.pattern %>" title="<%= field.title %>" <%= field.mode %>

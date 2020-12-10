@@ -6,7 +6,8 @@
     "size":"15",
     "pattern":"[A-ZÅÄÖ][a-zåäö]{0,14}", 
     "mode":"required",
-    "value":""
+    "value":"",
+    "type": "xyz"
   },
   {
     "name":"lastname",
@@ -15,7 +16,8 @@
     "size":"25",
     "pattern":"[A-ZÅÄÖ][a-zåäöA-ZÅÄÖ ]{0,14}",
     "mode":"",
-    "value":""
+    "value":"",
+    "type": "abc"
   },
   {
     "name":"department",
