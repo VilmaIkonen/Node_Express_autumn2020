@@ -56,8 +56,7 @@
     toggleFieldsVisibility(HIDE_SEARCH, HIDE_FORM);
     clearListArea();
     clearMessageArea();
-    clearFieldValues();
-    
+    clearFieldValues();    
     method = 'GETALL';
     document.getElementById('getall').checked = true;
   }
@@ -67,15 +66,16 @@
     clearMessageArea();
     clearListArea();    
     clearFieldValues();
-
     method = e.target.value;
+    //console.log(method);
+
     switch(method) {
       case 'GET':
       case 'REMOVE': toggleFieldsVisibility(SHOW_SEARCH, HIDE_FORM);
-      break;
+        break;
       case 'ADD':
-      case 'UPDATE': toggleFieldsVisibility(SHOW_SEARCH, SHOW_FORM)
-      break;
+      case 'UPDATE': toggleFieldsVisibility(SHOW_SEARCH, SHOW_FORM);
+        break;
       default: toggleFieldsVisibility(HIDE_SEARCH, HIDE_FORM);
     }     
   }
@@ -90,12 +90,12 @@
       case 'UPDATE':
         options.body = JSON.stringify(getFieldValues());
         options.method = 'POST';
-      break;
+        break;
       case 'GET':
       case 'REMOVE':
         options.body = JSON.stringify({personID: fields.personId.value});
         options.method = 'POST';
-      break;
+        break;
       default:
         options.method = 'GET';
     }
@@ -104,7 +104,7 @@
     // console.log('route', routes[method]);
 
     try {
-      const result = await fetch(routes[method], options);
+      const result=await fetch(routes[method],options);
       // result transformed to json
       const data = await result.json();
       // messagearea.textContent = JSON.stringify(data, null, 4);      
