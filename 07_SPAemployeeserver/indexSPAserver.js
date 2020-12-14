@@ -14,7 +14,8 @@ const dataStorage = createDataStorage();
 
 const server = http.createServer(app);
 
-// middleware
+// middleware 
+// for getting json data in and parsing it.
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -22,7 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 const homePath = path.join(__dirname, 'home.html');
 app.get('/', (req, res) => res.sendFile(homePath));
 
-// routes for data getAll, getPerson, remove, add, update
+// routes for data getAll, getPerson, remove, add, update. Only page as such is the home.html
 app.get('/all', (req, res) => 
   dataStorage.getAll()
   .then(result => res.json(result.map(emp => createPerson(emp)))));

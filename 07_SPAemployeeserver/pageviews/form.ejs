@@ -9,7 +9,7 @@
 <body>
   <main>
     <h1> <%= header %> </h1>
-    <form class="form" action=" <%= action %>" method="POST">
+    <form class="form" action="<%= action %>" method="POST">
     <!-- different action when updating and adding... -->
       <div>
         <p>
@@ -19,7 +19,7 @@
           id="personId" 
           name="personId"
           size="20"
-          value=" <%= personId.value %> " <%= personId.readonly %> >
+          value="<%= personId.value %>" <%= personId.readonly %> >
         </p>
       </div> 
       <div>
@@ -30,7 +30,7 @@
           id="firstname" 
           name="firstname"
           size="20"
-          value=" <%= firstname.value %> " <%= firstname.readonly %> >
+          value="<%= firstname.value %>" <%= firstname.readonly %> >
         </p>
       </div>
       <div>        
@@ -41,7 +41,7 @@
           id="lastname" 
           name="lastname"
           size="20"
-          value=" <%= lastname.value %> " <%= lastname.readonly %> >
+          value="<%= lastname.value %>" <%= lastname.readonly %> >
         </p>
       </div>
       <div>        
@@ -52,7 +52,7 @@
           id="department" 
           name="department"
           size="20"
-          value=" <%= department.value %> " <%= department.readonly %> >
+          value="<%= department.value %>" <%= department.readonly %> >
         </p>
       </div>
       <div>        
