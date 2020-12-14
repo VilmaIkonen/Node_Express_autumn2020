@@ -1,8 +1,11 @@
 'use strict';
 
 (function() {
-  const HIDE = false;
-  const SHOW = true;
+  const HIDE_SEARCH = false;
+  const SHOW_SEARCH = true;
+  const HIDE_FORM = false;
+  const SHOW_FORM = true;
+
 
   // elements we ahve access in the home.html
   let method = 'GETALL';
@@ -49,25 +52,33 @@
   }
 
   function clearSelections() {
-    // clearing function  
+    // 1st clear everything
+    clearListArea();
+    clearMessageArea();
+    clearFieldValues();
+    
+    method = 'GETALL';
+    document.getElementById('getall').checked = true;
+
+
 
   }
 
   function choose(e) {
     // Clear selections
-    messagearea.textContent = '';
-    listarea.innerHTML = '';
+    clearMessageArea();
+    clearListArea();    
     clearFieldValues();
 
     method = e.target.value;
     switch(method) {
       case 'GET':
-      case 'REMOVE': // code here
+      case 'REMOVE': toggleFieldsVisibility(SHOW_SEARCH, HIDE_FORM);
       break;
       case 'ADD':
-      case 'UPDATE': // code here
+      case 'UPDATE': toggleFieldsVisibility(SHOW_SEARCH, SHOW_FORM)
       break;
-      default: //code here
+      default: toggleFieldsVisibility(HIDE_SEARCH, HIDE_FORM);
     }     
   }
 
@@ -126,6 +137,8 @@
 
   // Could be also "function showAll(data)""
   function showAll(persons) { 
+    // at start, both form and searchare hidden
+    toggleFieldsVisibility(HIDE_SEARCH, HIDE_FORM);
     let htmlString = '<ul>';
     for(let person of persons) {
       htmlString += `<li>${person.personId}: ${person.firstname} ${person.lastname}, dept: ${person.department}, salary: ${person.salary}</li>`
@@ -138,8 +151,9 @@
   }
 
   function updateFormData(person) {
+
     // Clearing the message area
-    messagearea.textContent = ''; 
+    clearMessageArea();   
     if(person.message) {
       showMessage(person);
     }
@@ -147,6 +161,7 @@
       for(let field of Object.keys(fields)) {
         fields[field].value = person[field];
       }
+      toggleFieldsVisibility(SHOW_SEARCH, SHOW_FORM);
     }
   }
 
@@ -154,6 +169,32 @@
   function clearFieldValues() {
     for(let field of Object.keys(fields)) {
       fields[field].value = '';
+    }
+  }
+
+   // For clearing the message area
+  function clearMessageArea() {
+    clearMessageArea();
+  }
+
+   // For clearing the list area
+  function clearListArea() {
+    listarea.innerHTML = '';
+  }
+
+  // Toggling between form and search field visibilityW
+  function toggleFieldsVisibility(searchVisible = SHOW, formVisible = HIDE) {
+    if(searchVisible) {
+      search.removeAttribute('class')
+    }
+    else {
+      search.setAttribute('class', 'hidden') // .hidden in css
+    }
+    if(formVisible) {
+      form.removeAttribute('class')
+    }
+    else {
+      form.setAttribute('class', 'hidden') 
     }
   }
 
