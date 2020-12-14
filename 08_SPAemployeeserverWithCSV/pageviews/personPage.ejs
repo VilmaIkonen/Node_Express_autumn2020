@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Query result</title>
+  <link rel="stylesheet" href="/styles/styles.css" type="text/css">
+</head>
+<body>
+  <main>
+    <h1>Person data</h1>
+    <p><span class="legend">Person id: </span><%= result.personId %> </p>
+    <p>Name: <%= result.firstname %> <%= result.lastname %> </p>
+    <p>Department: <%= result.department %> </p>
+    <p>Salary: <%= result.salary %> €</p>
+    <a href="/"><button>Menu</button></a>
+    <a href="/getPerson"><button>Back to query page</button></a>
+  </main>  
+</body>
+</html>
