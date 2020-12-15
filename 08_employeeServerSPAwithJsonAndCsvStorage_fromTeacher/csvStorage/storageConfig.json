@@ -1,4 +1,4 @@
 {
-    "storageFile": "employees.csv",
-    "errorCodes": "errorCodes.js"
+	"storageFile": "employees.csv",
+	"readerWriter": "csvReaderWriter.js"
 }

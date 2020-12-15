@@ -1,0 +1,12 @@
+{
+	"storage": {
+		"folder": "csvStorage",
+		"storageConfig": "storageConfig.json"
+	},
+	"storageLibraries": {
+		"folder": "libraries",
+		"dataLayer": "dataStorageLayer.js",
+		"layerFunctions": "layerFunctions.js",
+		"errorCodes": "errorCodes.js"
+	}
+}

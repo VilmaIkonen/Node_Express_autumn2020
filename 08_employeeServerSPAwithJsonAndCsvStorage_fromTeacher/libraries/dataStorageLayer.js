@@ -3,7 +3,7 @@
 const path = require('path');
 const fs=require('fs').promises;
 
-const storageConfig=require('./storageConfig.json');
+const storageConfig=require('../jsonStorage/storageConfig.json');
 const storageFile = path.join(__dirname, storageConfig.storageFile);
 
 //wrapper function

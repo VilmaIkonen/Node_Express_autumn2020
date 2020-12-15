@@ -1,4 +1,4 @@
 {
   "storageFile": "employees.json",
-  "errorCodes": "errorCodes.js"
+  "readerWriter": "jsonReaderWriter.js"
 }
