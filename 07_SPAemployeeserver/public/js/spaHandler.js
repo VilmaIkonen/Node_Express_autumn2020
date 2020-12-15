@@ -16,7 +16,7 @@
 
   let fields = {
     personId: '', 
-    fistname:'', 
+    firstname:'', 
     lastname: '', 
     department:'', 
     salary:''
@@ -93,7 +93,7 @@
         break;
       case 'GET':
       case 'REMOVE':
-        options.body = JSON.stringify({personID: fields.personId.value});
+        options.body = JSON.stringify({personId: fields.personId.value});
         options.method = 'POST';
         break;
       default:
@@ -141,7 +141,7 @@
     for(let person of persons) {
       htmlString += `<li>${person.personId}: ${person.firstname} ${person.lastname}, dept: ${person.department}, salary: ${person.salary}</li>`
     }
-    listarea.innerHTML = htmlString+'<ul>';
+    listarea.innerHTML = htmlString+'</ul>';
   }
 
   function showMessage(data) {

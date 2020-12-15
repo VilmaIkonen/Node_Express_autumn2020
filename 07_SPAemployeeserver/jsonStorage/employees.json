@@ -21,13 +21,6 @@
         "salary": 3000
     },
     {
-        "employeeId": 45,
-        "firstname": "   Mrs",
-        "lastname": "Bay",
-        "department": "GM",
-        "salary": 3400
-    },
-    {
         "employeeId": 1,
         "firstname": "Kille",
         "lastname": "Kallenen",
