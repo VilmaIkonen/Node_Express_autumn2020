@@ -32,11 +32,11 @@ async function readStorage(storageFile){
 async function writeStorage(storageFile, data){
 	try{
 		await fs.promises.writeFile(storageFile, createCsv(data), {encoding:'utf8', flag:'w'});
-		return MESSAGES.WRITE_OK();
+		return true;
 
 	}
 	catch(err) {
-		return MESSAGES.WRITE_ERROR(err.message);
+		return false;
 	}
 }
 // Reading and Wrting end

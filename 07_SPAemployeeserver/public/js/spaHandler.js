@@ -73,7 +73,7 @@
       case 'GET':
       case 'REMOVE': toggleFieldsVisibility(SHOW_SEARCH, HIDE_FORM);
         break;
-      case 'ADD':
+      case 'ADD':clearM
       case 'UPDATE': toggleFieldsVisibility(SHOW_SEARCH, SHOW_FORM);
         break;
       default: toggleFieldsVisibility(HIDE_SEARCH, HIDE_FORM);
@@ -172,7 +172,7 @@
 
    // For clearing the message area
   function clearMessageArea() {
-    clearMessageArea();
+    messagearea.textContent = '';
   }
 
    // For clearing the list area

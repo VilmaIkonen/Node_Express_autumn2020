@@ -17,11 +17,11 @@ async function readStorage(storageFile){
 
 async function writeStorage(storageFile, data){
 	try{
-			await fs.writeFile(storageFile, JSON.stringify(data, null,4),{encoding:'utf8', flag:'w'});
-			return MESSAGES.WRITE_OK();
+			await fs.writeFile(storageFile, JSON.stringify(data, null, 4),{encoding:'utf8', flag:'w'});
+			return true;
 	}
 	catch(err) {
-			return MESSAGES.WRITE_ERROR(err.message);
+			return false;
 	}
 }
 

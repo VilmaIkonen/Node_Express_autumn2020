@@ -36,7 +36,7 @@ function initLayerFunctions(baseDir, config){
 		}
 	} //end of addStorage
 
-	async function removeFromStorage(id){
+	async function removeFromStorage(id) { 
 		let storage = await readStorage(storageFile);
 		const i = storage.findIndex(employee=>employee.employeeId==id);
 		if(i<0) return false;

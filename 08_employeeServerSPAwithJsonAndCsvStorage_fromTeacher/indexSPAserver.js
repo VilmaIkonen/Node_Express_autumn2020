@@ -6,13 +6,14 @@ const path = require('path');
 const express = require('express');
 const app = express();
 
-const { port, host, storage } = require('./serverConfig.json');
+const { port, host, activeStorage } = require('./mainServerConfig.json');
 
-const { createDataStorage } = require(path.join(__dirname,
-    storage.storageFolder,
-    storage.dataLayer));
+const { storage, storageLibraries } = require(path.join(__dirname, activeStorage));
 
-const dataStorage = createDataStorage();
+const { createDataStorage} = require(path.join( __dirname, storageLibraries.folder, storageLibraries.dataLayer));
+
+const dataStorage = createDataStorage(__dirname, {storage, storageLibraries});   
+
 
 const server = http.createServer(app);
 
