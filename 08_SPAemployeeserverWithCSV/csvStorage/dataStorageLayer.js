@@ -2,7 +2,7 @@
 
 const path = require('path');
 const fs = require('fs');
-const readline = equire('readline');
+const readline = require('readline');
 
 const storageConfig = require('./storageConfig.json');
 const storageFile = path.join(__dirname, storageConfig.storageFile);

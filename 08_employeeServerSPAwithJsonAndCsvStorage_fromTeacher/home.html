@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SPAdemo</title>
+    <link rel="stylesheet" href="/styles/spastyles.css" type="text/css">
+    <script src="/js/spaHandler.js"></script>
+</head>
+<body>
+    <main>
+        <h1>SPA</h1>
+        <fieldset id="methods">
+            <legend>Choose:</legend>
+            <label><input type="radio" name="method" value="GETALL" id="getall">Get all</label>
+            <label><input type="radio" name="method" value="GET">Get one</label>
+            <label><input type="radio" name="method" value="ADD">Add</label>
+            <label><input type="radio" name="method" value="UPDATE">Update</label>
+            <label><input type="radio" name="method" value="REMOVE">Remove</label>
+        </fieldset>
+        <div id="search">
+            <p>
+                <label for="personId">PersonId</label>
+                <input type="text" id="personId" size="5">
+            </p>
+        </div>
+        <div id="form">
+            <p>
+                <label for="firstname">First name</label>
+                <input type="text" id="firstname" size="15">
+            </p>
+            <p>
+                <label for="lastname">Last name</label>
+                <input type="text" id="lastname" size="25">
+            </p>
+            <p>
+                <label for="department">Department</label>
+                <input type="text" id="department" size="10">
+            </p>
+            <p>
+                <label for="salary">Salary</label>
+                <input type="text" id="salary" size="30">
+            </p>
+        </div>
+        <button id="submit">Submit</button>
+        <div id="listarea"></div>
+        <div id="messagearea"></div>
+    </main>
+</body>
+</html>
