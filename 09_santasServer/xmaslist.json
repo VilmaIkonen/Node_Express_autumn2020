@@ -1,0 +1,25 @@
+[
+  {
+    "firstname": "Matt",
+    "lastname": "River",
+    "age": 50,
+    "status": "very nice",
+    "gifts": [
+      {"name": "Teddy", "image": "Teddy.png"},
+      {"name": "sweets", "image": "Sweets.png"}
+    ],
+    "delivery": "through chimney"
+  },
+    {
+    "firstname": "Mary",
+    "lastname": "Smith",
+    "age": 10,
+    "status": "very nice",
+    "gifts": [
+      {"name": "Toy car", "image": "blueCar.png"},
+      {"name": "Ice cream", "image": "Icecream.png"},
+      {"name": "Soft toy turtle", "image": "Turtle2.png"}
+    ],
+    "delivery": "under the xmas tree"
+  }
+]

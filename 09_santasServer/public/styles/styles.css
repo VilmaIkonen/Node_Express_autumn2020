@@ -1,0 +1,26 @@
+main {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+  color:red;
+}
+
+section {
+  height: auto;
+  min-width: 300px;
+  max-width: 30vw;
+  padding: 1em;
+  margin: 2em;
+  border: solid 1px rgb(21, 77, 4);
+  border-radius: 2px;
+}
+
+h2 {
+  color: green;
+}
+
+img {
+  height: 80px;
+  width: auto;
+}
