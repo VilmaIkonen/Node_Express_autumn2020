@@ -13,7 +13,7 @@
     let form;
 
     let fields={
-        personId:'',firstname:'',lastname:'',department:'', salary:''
+        personId:'', firstname:'', lastname:'', department:'', salary:''
     }
     const routes={
         GETALL:'/all',
