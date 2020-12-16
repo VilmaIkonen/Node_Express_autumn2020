@@ -26,5 +26,12 @@
         "lastname": "Kallenen",
         "department": "QA",
         "salary": 5546
+    },
+    {
+        "employeeId": 123,
+        "firstname": "f",
+        "lastname": "s",
+        "department": "t",
+        "salary": 23
     }
 ]
