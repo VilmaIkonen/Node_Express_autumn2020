@@ -3,10 +3,10 @@
 const path = require('path');
 
 // Wrapper function
-function createDataStorage(baseDir, config){
+function createDataStorage(baseDir, config) {
 
 	const libPath = path.join(baseDir, config.storageLibraries.folder)
-	const { CODES, MESSAGES }=require(path.join(libPath, config.storageLibraries.errorCodes));
+	const { CODES, MESSAGES } = require(path.join(libPath, config.storageLibraries.errorCodes));
 	const { initLayerFunctions } = require(path.join(libPath, config.storageLibraries.layerFunctions));
 
 	const { 
@@ -17,7 +17,7 @@ function createDataStorage(baseDir, config){
 		removeFromStorage 
 	} = initLayerFunctions (baseDir, config.storage);
 
-	class Datastorage{
+	class Datastorage {
 		get CODES() {
 			return CODES;
 		}
@@ -26,8 +26,8 @@ function createDataStorage(baseDir, config){
 			return getAllFromStorage();
 		}
 
-		get(id){
-			return new Promise(async (resolve,reject) =>{
+		get(id) {
+			return new Promise(async (resolve, reject) => {
 				if(!id) {
 					reject(MESSAGES.NOT_FOUND('<empty id>'));
 				}
@@ -36,20 +36,20 @@ function createDataStorage(baseDir, config){
 					if(result) {
 							resolve(result);
 					}
-					else{
+					else {
 							reject(MESSAGES.NOT_FOUND(id));
 					}
 				}
 			});
 		}
-		insert(employee){
-				return new Promise(async (resolve,reject)=>{
+		insert(employee) {
+				return new Promise(async (resolve,reject) => {
 						if(!(employee && employee.employeeId &&
 									employee.firstname && employee.lastname)){
 											reject(MESSAGES.NOT_INSERTED());
 						}
-						else{
-								if( await addToStorage(employee)) {
+						else {
+								if(await addToStorage(employee)) {
 										resolve(MESSAGES.INSERT_OK(employee.employeeId));
 								}
 								else {
@@ -60,7 +60,7 @@ function createDataStorage(baseDir, config){
 		}
 
 	remove(employeeId){
-		return new Promise(async (resolve, reject)=>{
+		return new Promise(async (resolve, reject) => {
 			if(!employeeId) {
 				reject(MESSAGES.NOT_FOUND('<empty>'));
 			}
@@ -76,7 +76,7 @@ function createDataStorage(baseDir, config){
 	}
 
 	update(employee) {
-		return new Promise( async (resolve, reject)=> {
+		return new Promise(async (resolve, reject) => {
 			if(!(employee && employee.employeeId &&
 						employee.firstname && employee.lastname)){
 								reject(MESSAGES.NOT_UPDATED());
@@ -98,6 +98,4 @@ function createDataStorage(baseDir, config){
 
 } //wrapper end
 
-module.exports = {
-    createDataStorage
-}
+module.exports = { createDataStorage }

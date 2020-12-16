@@ -3,7 +3,7 @@
 const path = require('path');
 
 // Init function
-function initLayerFunctions(baseDir, config){
+function initLayerFunctions(baseDir, config) {
 
 	const storageFolder = path.join(baseDir, config.folder);
 	const storageConfig = require(path.join(storageFolder, config.storageConfig));
@@ -15,23 +15,23 @@ function initLayerFunctions(baseDir, config){
 	}
 
 	async function getFromStorage(id) {
-		return (await readStorage(storageFile)).find(employee =>employee.employeeId==id) || null;
+		return (await readStorage(storageFile)).find(employee => employee.employeeId == id) || null;
 	}
 
 	async function addToStorage(newEmployee){
 		const storage = await readStorage(storageFile);
-		if(storage.find(employee=>employee.employeeId == newEmployee.employeeId)) {
+		if(storage.find(employee => employee.employeeId == newEmployee.employeeId)) {
 				return false;
 		}
 		else {
 			storage.push({
 				employeeId: +newEmployee.employeeId,
 				firstname: newEmployee.firstname,
-				lastname:newEmployee.lastname,
+				lastname: newEmployee.lastname,
 				department: newEmployee.department,
 				salary: +newEmployee.salary
 			});
-			await writeStorage(storageFile);
+			await writeStorage(storageFile, storage);
 			return true;
 		}
 	} //end of addStorage
@@ -41,7 +41,7 @@ function initLayerFunctions(baseDir, config){
 		const i = storage.findIndex(employee=>employee.employeeId==id);
 		if(i<0) return false;
 		storage.splice(i,1);
-		await writeStorage(storageFile);
+		await writeStorage(storageFile, storage);
 		return true;
 	}
 
@@ -57,7 +57,7 @@ function initLayerFunctions(baseDir, config){
 				department: employee.department,
 				salary: +employee.salary 
 			});
-			await writeStorage(storageFile);
+			await writeStorage(storageFile, storage);
 			return true;
 		}
 		else {
